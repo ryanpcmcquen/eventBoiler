@@ -1,4 +1,7 @@
-// eventBoiler v0.1.0
+/*jslint browser:true*/
+/*global window*/
+// eventBoiler v0.1.1 by @ryanpcmcquen
+// https://github.com/ryanpcmcquen/eventBoiler
 //
 // Ryan P.C. McQuen | Everett, WA | ryan.q@linux.com
 //
@@ -20,12 +23,13 @@
 // with this program (most likely, a file named COPYING).  If not, see
 // <https://www.gnu.org/licenses/>.
 (function (win, doc) {
+    'use strict';
     win.eventBoiler = function (selector, typeOfEvent, func) {
         doc.querySelector(selector).addEventListener(typeOfEvent, func);
     };
     win.eventBoiler.all = function (selectors, typeOfEvent, func) {
-        [].slice.call(doc.querySelectorAll(selectors)).map(function (i) {
+        Array.prototype.slice.call(doc.querySelectorAll(selectors)).map(function (i) {
             i.addEventListener(typeOfEvent, func);
         });
     };
-})(window, document);
+}(window, document));
