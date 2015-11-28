@@ -10,9 +10,9 @@ https://jsfiddle.net/ryanpcmcquen/fy84758z/
 
 To include in your project just add the script in the coolest spot :sunglasses:
 
-    <script src="https://cdn.rawgit.com/ryanpcmcquen/eventBoiler/b5ee892df715221acf3eab09d0192978c8760842/eventBoiler.min.js"></script>
+    <script src="https://cdn.rawgit.com/ryanpcmcquen/eventBoiler/5c97ee38dab2c983c7313b655cdb903794e22469/eventBoiler.min.js"></script>
 
-https://cdn.rawgit.com/ryanpcmcquen/eventBoiler/b5ee892df715221acf3eab09d0192978c8760842/eventBoiler.min.js
+https://cdn.rawgit.com/ryanpcmcquen/eventBoiler/5c97ee38dab2c983c7313b655cdb903794e22469/eventBoiler.min.js
 
 :thought_balloon: P.S. It is under a kilobyte! :moyai:
 
