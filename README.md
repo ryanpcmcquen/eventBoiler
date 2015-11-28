@@ -1,5 +1,7 @@
 # eventBoiler
-A minimalist (<0.5KB) nano-library for using event listeners. :volcano:
+A minimalist, nano-library for using event listeners. :volcano:
+
+`evBo` includes built in throttling thanks to [odis](https://github.com/ryanpcmcquen/odis).
 
 Fork this fiddle to try it out:
 
@@ -12,20 +14,12 @@ To include in your project just add the script in the coolest spot :sunglasses:
 
 https://cdn.rawgit.com/ryanpcmcquen/eventBoiler/b5ee892df715221acf3eab09d0192978c8760842/eventBoiler.min.js
 
-:thought_balloon: P.S. It is less than half a kilobyte! :moyai:
-
-
-Or for the development version:
-
-    <script src="https://cdn.rawgit.com/ryanpcmcquen/eventBoiler/f55569e93b3211daf317893043e7e26e85b8cfc2/eventBoiler.js"></script>
-
-https://cdn.rawgit.com/ryanpcmcquen/eventBoiler/f55569e93b3211daf317893043e7e26e85b8cfc2/eventBoiler.js
-
+:thought_balloon: P.S. It is under a kilobyte! :moyai:
 
 ### How do I make it go?
 
-    eventBoiler(".foo", "click", function () {
+    evBo(".foo", "click", function () {
       console.log(this);
     });
 
-Here you are adding a click listener to the `.foo` selector, and apparently your project is pretty lame, because you are just logging it to the console ... :-1:
+Here you are adding a click listener to the `.foo` selector, and apparently your project is pretty lame, because you are just logging it to the console ... :confused:

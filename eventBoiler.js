@@ -1,6 +1,6 @@
-/*jslint browser:true*/
+/*jslint browser:true, white:true*/
 /*global window*/
-// eventBoiler v0.1.1 by @ryanpcmcquen
+/* eventBoiler v0.2.0 by @ryanpcmcquen */
 // https://github.com/ryanpcmcquen/eventBoiler
 //
 // Ryan P.C. McQuen | Everett, WA | ryan.q@linux.com
@@ -22,14 +22,45 @@
 // You may have received a copy of the GNU General Public License along
 // with this program (most likely, a file named COPYING).  If not, see
 // <https://www.gnu.org/licenses/>.
-(function (win, doc) {
-    'use strict';
-    win.eventBoiler = function (selector, typeOfEvent, func) {
-        doc.querySelector(selector).addEventListener(typeOfEvent, func);
-    };
-    win.eventBoiler.all = function (selectors, typeOfEvent, func) {
-        Array.prototype.slice.call(doc.querySelectorAll(selectors)).map(function (i) {
-            i.addEventListener(typeOfEvent, func);
-        });
-    };
-}(window, document));
+(function() {
+  'use strict';
+  // taken from odis: https://github.com/ryanpcmcquen/odis
+  var odis = {
+    throttle: function(func, delay) {
+      // nod to Douglas Adams  ;^)
+      delay = delay || 42;
+      var waiting = false,
+        funcTimeoutId;
+      return function() {
+        if (!waiting) {
+          waiting = true;
+          clearTimeout(funcTimeoutId);
+          funcTimeoutId = setTimeout(function() {
+            func.call();
+            waiting = false;
+          }, delay);
+        }
+      };
+    }
+  };
+  var eventBoiler = function(selector, typeOfEvent, func, throttle) {
+    if (throttle) {
+      document.querySelector(selector).addEventListener(typeOfEvent, odis.throttle(func));
+    } else {
+      document.querySelector(selector).addEventListener(typeOfEvent, func);
+    }
+  };
+  eventBoiler.all = function(selectors, typeOfEvent, func, throttle) {
+    if (throttle) {
+      Array.prototype.slice.call(document.querySelectorAll(selectors)).map(function(i) {
+        i.addEventListener(typeOfEvent, odis.throttle(func));
+      });
+    } else {
+      Array.prototype.slice.call(document.querySelectorAll(selectors)).map(function(i) {
+        i.addEventListener(typeOfEvent, func);
+      });
+    }
+  };
+  // attach eventBoiler globally and shorten
+  window.evBo = eventBoiler;
+}());
