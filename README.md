@@ -24,8 +24,14 @@ https://cdn.rawgit.com/ryanpcmcquen/eventBoiler/5c97ee38dab2c983c7313b655cdb9037
 
 Here you are adding a click listener to the `.foo` selector, and apparently your project is pretty lame, because you are just logging it to the console ... :confused:
 
-eventBoiler (called with `evBo`), also includes throttling that is turned on by default, if you wish to turn that throttling off, pass `false` as the last argument, like so:
+eventBoiler (invoked with `evBo`), also includes throttling that is turned on by default, if you wish to turn that throttling off, pass `false` as the last argument, like so:
 
     evBo(".foo", "click", function () {
       console.log(this);
     }, false);
+
+To add event listeners to more than one element, use `evBo.all`:
+
+    evBo.all(".foo, .bar, #baz", "click", function () {
+      console.log(this);
+    });

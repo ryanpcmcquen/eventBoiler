@@ -1,6 +1,6 @@
 /*jslint browser:true, white:true*/
 /*global window*/
-/* eventBoiler v0.2.0 by @ryanpcmcquen */
+/* eventBoiler v0.2.1 by @ryanpcmcquen */
 // https://github.com/ryanpcmcquen/eventBoiler
 //
 // Ryan P.C. McQuen | Everett, WA | ryan.q@linux.com
@@ -44,6 +44,7 @@
     }
   };
   var eventBoiler = function(selector, typeOfEvent, func, throttle) {
+    throttle = throttle || true;
     if (throttle) {
       document.querySelector(selector).addEventListener(typeOfEvent, odis.throttle(func));
     } else {
@@ -51,6 +52,7 @@
     }
   };
   eventBoiler.all = function(selectors, typeOfEvent, func, throttle) {
+    throttle = throttle || true;
     if (throttle) {
       Array.prototype.slice.call(document.querySelectorAll(selectors)).map(function(i) {
         i.addEventListener(typeOfEvent, odis.throttle(func));
