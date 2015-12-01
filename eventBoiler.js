@@ -1,6 +1,6 @@
 /*jslint browser:true, white:true*/
 /*global window*/
-/* eventBoiler v0.2.1 by @ryanpcmcquen */
+/* eventBoiler v0.2.2 by @ryanpcmcquen */
 // https://github.com/ryanpcmcquen/eventBoiler
 //
 // Ryan P.C. McQuen | Everett, WA | ryan.q@linux.com
@@ -26,6 +26,7 @@
   'use strict';
   // taken from odis: https://github.com/ryanpcmcquen/odis
   var odis = {
+    /* odis v0.1.2 by ryanpcmcquen */
     throttle: function(func, delay) {
       // nod to Douglas Adams  ;^)
       delay = delay || 42;
@@ -33,6 +34,8 @@
         funcTimeoutId;
       return function() {
         if (!waiting) {
+          // very similar to debounce, but 'waiting'
+          // allows execution while being called
           waiting = true;
           clearTimeout(funcTimeoutId);
           funcTimeoutId = setTimeout(function() {
