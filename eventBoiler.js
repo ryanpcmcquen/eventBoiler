@@ -3,7 +3,7 @@
 /* eventBoiler v0.2.2 by @ryanpcmcquen */
 // https://github.com/ryanpcmcquen/eventBoiler
 //
-// Ryan P. C. McQuen | Everett, WA | ryanpcmcquen@member.fsf.org
+// Ryan P. C. McQuen | Everett, WA
 
 (function() {
   'use strict';
